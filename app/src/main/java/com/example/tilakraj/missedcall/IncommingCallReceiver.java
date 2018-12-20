@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
+import android.util.Log;
 import android.widget.Toast;
 
 public class IncommingCallReceiver extends BroadcastReceiver {
@@ -14,7 +15,7 @@ public class IncommingCallReceiver extends BroadcastReceiver {
     private static boolean ring = false;
     private static boolean callReceived = false;
     private String callerPhoneNumber;
-  
+
 
 
     @Override
@@ -43,6 +44,8 @@ public class IncommingCallReceiver extends BroadcastReceiver {
             // If phone was ringing(ring=true) and not received(callReceived=false) , then it is a missed call
             if (ring == true && callReceived == false) {
                 Toast.makeText(context, "missed call : " + callerPhoneNumber, Toast.LENGTH_LONG).show();
+
+                Log.d("sany","sant"+callerPhoneNumber);
                 //workingWithFunctions();
                 ring = false;
             }
